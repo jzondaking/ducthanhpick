@@ -99,13 +99,13 @@
             <div class="row">
                 <div class="col-lg-6" style="margin: 0 auto; float: none; margin-bottom: 10px;">
                     <div class="jumbotron gradient-border">
-                        <h3 style="margin-top: -15px; margin-bottom: 25px; text-align: center; font-weight: bold; font-style: italic;" class="text-warning">TOP 10 TƯỚNG PICK NHIỀU NHẤT</h3>
+                        <h2 style="margin-top: -15px; margin-bottom: 25px; text-align: center; font-weight: bold; font-style: italic;" class="text-warning">TOP 10 TƯỚNG PICK NHIỀU NHẤT</h2>
                 
                         <table class="table table-striped table-hover" style="border: 1px solid black;">
                             <thead>
                                 <tr style="text-align: center !important;">
-                                    <th style="width: 50%; text-align: center !important;">Tên Tướng</th>
-                                    <th style="width: 50%; text-align: center !important;">Số Lần Pick</th>
+                                    <th style="width: 50%; text-align: center !important;">TÊN TƯỚNG</th>
+                                    <th style="width: 50%; text-align: center !important;">SỐ LẦN PICK</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center" id="data_champions">
@@ -170,7 +170,7 @@
                             var name = line[i]['name'];
                             var times = line[i]['times'];
                             var icon = line[i]['icon'];
-                            var element = '<tr><td><img src="' + icon + '"> ' + name + '</td><td>' + times + '</td></tr>';
+                            var element = '<tr><td><img src="' + icon + '" style="width: 10%; border-radius: 100%;"> <span class="text-warning">' + name + '</span> </td><td> <b class="text-warning">' + times + '</b> </td></tr>';
 
                             $("#data_champions").append(element)
                         }
