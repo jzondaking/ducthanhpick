@@ -49,7 +49,7 @@
                         <p style="color: grey; font-size: 15px;">Phần mềm tự động pick, tự động chấp nhận trận đấu và chat trong lúc pick tướng với tốc độ chưa đến 1s</p>
                         <p>
                             <a class="btn btn-lg btn-primary" href="" role="button">TẢI VỀ <i class="fas fa-download"></i></a>
-                            <a class="btn btn-warning" id="lastest_version"><i class="fas fa-spinner fa-pulse"></i></a>
+                            <a class="btn btn-warning">Phiên bản mới nhất: <span id="lastest_version"><i class="fas fa-spinner fa-pulse"></span></i></a>
                         </p>
                     </div>
                 </div>
@@ -62,5 +62,18 @@
             </div>
         </div>
         <script src="https:////maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+        <script>
+            $.ajax({
+                type: "GET",
+                url: "http://ducthanhpick-files.herokuapp.com/files/version.php",
+                dataType: "text",
+                success: function (res) {
+                    $("#lastest_version").html(res)
+                }
+            });
+
+        </script>
     </body>
+    
 </html>
