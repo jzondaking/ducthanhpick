@@ -165,13 +165,16 @@
                             final = len;
                         }
 
+                        var load = final - 1;
+
                         for (let i = 0; i < final; i++) {
-                            var name = line[i]['name'];
-                            var times = line[i]['times'];
-                            var icon = line[i]['icon'];
+                            var name = line[load]['name'];
+                            var times = line[load]['times'];
+                            var icon = line[load]['icon'];
                             var element = '<tr><td><img src="' + icon + '" style="width: 10%; border-radius: 100%;"> <span class="text-warning">' + name + '</span> </td><td> <b class="text-warning">' + times + '</b> </td></tr>';
 
                             $("#data_champions").append(element)
+                            load--;
                         }
 
                     }
