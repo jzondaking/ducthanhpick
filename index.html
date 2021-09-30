@@ -158,14 +158,17 @@
 
                         var len = objectLength(line)
                         var final = 0;
+                        var load;
 
                         if(len >= 10) {
                             final = 10;
+                            load = 10 - 1;
                         }else{
                             final = len;
+                            load = len;
                         }
 
-                        var load = final - 1;
+                        var load = final;
 
                         for (let i = 0; i < final; i++) {
                             var name = line[load]['name'];
