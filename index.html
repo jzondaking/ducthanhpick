@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-        <title>Hacker Bootstrap Theme</title>
+        <title>DucThanh Pick - Tự động hóa Liên Minh Huyền Thoại</title>
         <meta name="description" content="DucThanh Pick - Phần mềm tự động pick, tự động chấp nhận trận đấu và chat trong lúc pick tướng với tốc độ chưa đến 1s">
         <meta name="author" content="JT Soft - DucThanh IT Corp">
 
@@ -36,7 +36,9 @@
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="container" style="text-align: center;">
-                    <img src="https://phamducthanh-jtech.github.io/ducthanhpick/frontend/images/logo.png" style="width: 50%;margin-top: 5px;">
+                    <a href="https://jzontech.asia">
+                        <img src="https://phamducthanh-jtech.github.io/ducthanhpick/frontend/images/logo.png" style="width: 50%;margin-top: 5px;">
+                    </a>
                 </div>
             </div>
         </nav>
@@ -45,13 +47,16 @@
             <!-- Jumbotron -->
             <div class="jumbotron">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                         <h1>DucThanh Pick</h1>
                         <p style="color: grey; font-size: 15px;">Phần mềm tự động pick, tự động chấp nhận trận đấu và chat trong lúc pick tướng với tốc độ chưa đến 1s</p>
                         <p>
                             <a class="btn btn-lg btn-primary" href="" role="button">TẢI VỀ <i class="fas fa-download"></i></a>
                             <a class="btn btn-warning">Phiên bản mới nhất: <span id="lastest_version"><i class="fas fa-spinner fa-pulse"></span></i></a>
                         </p>
+                    </div>
+                    <div class="col-lg-5">
+                        1
                     </div>
                 </div>
             </div>
@@ -70,7 +75,7 @@
                 url: "https://ducthanhpick-files.herokuapp.com/files/version.php",
                 dataType: "text",
                 success: function (res) {
-                    $("#lastest_version").html(res)
+                    $("#lastest_version").addClass('badge').html(res)
                 }
             });
 
