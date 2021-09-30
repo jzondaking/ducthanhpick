@@ -158,15 +158,15 @@
 
                         var len = objectLength(line)
                         var final = 0;
-                        var load;
 
                         if(len >= 10) {
+                            var load = final - 1;
                             final = 10;
-                            load = 10 - 1;
                         }else{
+                            var load = final;
                             final = len;
-                            load = len;
                         }
+
 
                         for (let i = 0; i < final; i++) {
                             var name = line[load]['name'];
@@ -175,6 +175,7 @@
                             var element = '<tr><td><img src="' + icon + '" style="width: 10%; border-radius: 100%;"> <span class="text-warning">' + name + '</span> </td><td> <b class="text-warning">' + times + '</b> </td></tr>';
 
                             $("#data_champions").append(element)
+
                             load--;
                         }
 
