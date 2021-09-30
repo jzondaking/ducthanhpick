@@ -101,7 +101,7 @@
                     <div class="jumbotron gradient-border">
                         <h3 style="margin-top: -15px; margin-bottom: 25px; text-align: center; font-weight: bold; font-style: italic;" class="text-warning">TOP 10 TƯỚNG PICK NHIỀU NHẤT</h3>
                 
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover" style="border: 1px solid black;">
                             <thead>
                                 <tr style="text-align: center !important;">
                                     <th style="width: 50%; text-align: center !important;">Tên Tướng</th>
@@ -127,25 +127,68 @@
         <script src="https:////maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
         <script>
-            $.ajax({
-                type: "GET",
-                url: "https://ducthanhpick-files.herokuapp.com/files/version.php",
-                dataType: "text",
-                success: function (ver) {
-                    $("#lastest_version").addClass('badge').html(ver)
-                    $("#img_holder").html('<img src="/frontend/version_images/' + ver + '.png" width="100%">')
+            $(function(){
+                $.ajax({
+                    type: "GET",
+                    url: "https://ducthanhpick-files.herokuapp.com/files/version.php",
+                    dataType: "text",
+                    success: function (ver) {
+                        $("#lastest_version").addClass('badge').html(ver)
+                        $("#img_holder").html('<img src="/frontend/version_images/' + ver + '.png" width="100%">')
 
-                    $.ajax({
-                        type: "GET",
-                        url: "http://ducthanhpick-files.herokuapp.com/files/nofication.php?version=" + ver,
-                        dataType: "text",
-                        success: function (nof) {
-                            $("#nofication").html(nof)
+                        $.ajax({
+                            type: "GET",
+                            url: "http://ducthanhpick-files.herokuapp.com/files/nofication.php?version=" + ver,
+                            dataType: "text",
+                            success: function (nof) {
+                                $("#nofication").html(nof)
+                            }
+                        });
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: "https://ducthanhpick-files.herokuapp.com/api/top-picked.php",
+                    dataType: "text",
+                    success: function (data) {
+                        $("#data_champions").html('')
+
+                        var obj = JSON.parse(data)
+                        var line = obj['data']
+
+                        var len = objectLength(line)
+                        var final = 0;
+
+                        if(len >= 10) {
+                            final = 10;
+                        }else{
+                            final = len;
                         }
-                    });
-                }
-            });
 
+                        for (let i = 0; i < final; i++) {
+                            var name = line[i]['name'];
+                            var times = line[i]['times'];
+                            var icon = line[i]['icon'];
+                            var element = '<tr><td><img src="' + icon + '"> ' + name + '</td><td>' + times + '</td></tr>';
+
+                            $("#data_champions").append(element)
+                        }
+
+                    }
+                });
+            })
+
+            function objectLength(obj) {
+                var result = 0;
+                for(var prop in obj) {
+                    if (obj.hasOwnProperty(prop)) {
+                        result++;
+                    }
+                }
+                return result;
+            }
+                
         </script>
     </body>
     
