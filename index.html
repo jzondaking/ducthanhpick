@@ -11,10 +11,10 @@
         <meta name="author" content="JT Soft - DucThanh IT Corp">
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link href="/ducthanhpick/frontend/css/jtech.css" rel="stylesheet" />
+        <link href="/frontend/css/jtech.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-        <link rel="shortcut icon" href="/ducthanhpick/frontend/images/main.jpg">
+        <link rel="shortcut icon" href="/frontend/images/main.jpg">
 
         <style>
             .tall-row {
@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="container" style="text-align: center;">
                     <a href="https://jzontech.asia">
-                        <img src="https://phamducthanh-jtech.github.io/ducthanhpick/frontend/images/logo.png" style="width: 50%;margin-top: 5px;">
+                        <img src="/frontend/images/logo.png" style="width: 50%;margin-top: 5px;">
                     </a>
                 </div>
             </div>
@@ -101,7 +101,7 @@
                 dataType: "text",
                 success: function (ver) {
                     $("#lastest_version").addClass('badge').html(ver)
-                    $("#img_holder").html('<img src="/ducthanhpick/frontend/version_images/' + ver + '.png" width="100%">')
+                    $("#img_holder").html('<img src="/frontend/version_images/' + ver + '.png" width="100%">')
 
                     $.ajax({
                         type: "GET",
