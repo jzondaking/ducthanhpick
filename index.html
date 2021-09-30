@@ -51,9 +51,13 @@
                         <h1>DucThanh Pick</h1>
                         <p style="color: grey; font-size: 15px;">Phần mềm tự động pick, tự động chấp nhận trận đấu và chat trong lúc pick tướng với tốc độ chưa đến 1s</p>
                         <p>
-                            <a class="btn btn-lg btn-primary" href="" role="button">TẢI VỀ <i class="fas fa-download"></i></a>
+                            <a class="btn btn-lg btn-primary" href="" role="button" style="border-radius: 15px;">TẢI VỀ <i class="fas fa-cloud-download-alt"></i></a>
                             <a class="btn btn-warning">Phiên bản mới nhất: <span id="lastest_version"><i class="fas fa-spinner fa-pulse"></span></i></a>
                         </p>
+
+                        <div class="alert alert-warning" id="nofication">
+                            Đang tải dữ liệu...
+                        </div>
                     </div>
                     <div class="col-lg-4" id="img_holder">
                         <h4 class="text-center">ĐANG TẢI ẢNH...</h4>
@@ -77,6 +81,15 @@
                 success: function (ver) {
                     $("#lastest_version").addClass('badge').html(ver)
                     $("#img_holder").html('<img src="/ducthanhpick/frontend/version_images/' + ver + '.png" width="100%">')
+
+                    $.ajax({
+                        type: "GET",
+                        url: "http://ducthanhpick-files.herokuapp.com/files/nofication.php?version=" + ver,
+                        dataType: "text",
+                        success: function (nof) {
+                            $("#nofication").html(nof)
+                        }
+                    });
                 }
             });
 
