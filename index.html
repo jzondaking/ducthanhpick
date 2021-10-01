@@ -150,7 +150,8 @@
                             url: "http://ducthanhpick-files.herokuapp.com/files/nofication.php?version=" + ver,
                             dataType: "text",
                             success: function (nof) {
-                                $("#nofication").html(nof)
+                                var ok__ = nof.replace('\n', '<br>');
+                                $("#nofication").html(ok__)
                             }
                         });
                     }
