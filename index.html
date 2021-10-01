@@ -126,6 +126,16 @@
         <script src="https:////maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
         <script>
+            function rand_str(length) {
+                var result           = '';
+                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * 
+                    charactersLength));
+                }
+                return result;
+            }
             $(function(){
                 $.ajax({
                     type: "GET",
@@ -165,14 +175,17 @@
                             final = len;
                         }
 
+                        var next_append = rand_str(10);
 
                         for (let i = 0; i < final; i++) {
                             var name = line[i]['name'];
                             var times = line[i]['times'];
                             var icon = line[i]['icon'];
-                            var element = '<tr><td><img src="' + icon + '" style="width: 10%; border-radius: 100%;"> <span class="text-warning">' + name + '</span> </td><td> <b class="text-warning">' + times + '</b> </td></tr>';
+                            var element = '<div id="' + next_append + '"> <tr><td><img src="' + icon + '" style="width: 10%; border-radius: 100%;"> <span class="text-warning">' + name + '</span> </td><td> <b class="text-warning">' + times + '</b> </td></tr> </div>';
 
-                            $("#data_champions").append(element)
+                            $("#next_append").append(element)
+
+                            next_append = rand_str(10)
                         }
 
                     }
