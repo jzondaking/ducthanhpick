@@ -174,21 +174,13 @@
                         }else{
                             final = len;
                         }
-
-                        var next_append = "";
                         
                         for (let i = 0; i < final; i++) {
                             var name = line[i]['name'];
                             var times = line[i]['times'];
                             var icon = line[i]['icon'];
-                            var element = '<div id="' + next_append + '"> <tr><td><img src="' + icon + '" style="width: 10%; border-radius: 100%;"> <span class="text-warning">' + name + '</span> </td><td> <b class="text-warning">' + times + '</b> </td></tr> </div>';
-                            if(next_append == '') {
-                                $("#data_champions").append(element)
-                            }else{
-                                $("#" + next_append).append(element)
-                            }
-
-                            next_append = rand_str(10)
+                            var element = '<tr><td><img src="' + icon + '" style="width: 10%; border-radius: 100%;"> <span class="text-warning">' + name + '</span> </td><td> <b class="text-warning">' + times + '</b> </td></tr>';
+                            $("#data_champions").append(element)
                         }
 
                     }
